@@ -7,11 +7,11 @@ Group:		Libraries
 URL:		http://www.freedesktop.org/wiki/Software/libvisio
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
 # Source0-md5:	740188f5b72cc290c89bf306461178ad
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
 BuildRequires:	libwpd-devel
 BuildRequires:	libwpg-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Libvisio is library providing ability to interpret and import visio
@@ -22,11 +22,21 @@ libreoffice.
 Summary:	Development files for %{name}
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	pkgconfig
 
 %description devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
+
+%package apidocs
+Summary:	%{name} API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki %{name}
+Group:		Documentation
+
+%description apidocs
+API and internal documentation for %{name} library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki %{name}.
 
 %package tools
 Summary:	Tools to transform Visio diagrams into other formats
@@ -50,29 +60,32 @@ supported: XHTML, raw.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT/%{_libdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COPYING.*
-%attr(755,root,root) %{_libdir}/%{name}-0.0.so.*
+%doc AUTHORS ChangeLog
+%attr(755,root,root) %{_libdir}/%{name}-0.0.so.*.*.*
+%ghost %{_libdir}/libvisio-0.0.so.0
 
 %files devel
-%doc %{_docdir}/%{name}
 %defattr(644,root,root,755)
+%{_libdir}/%{name}-0.0.so
 %{_includedir}/%{name}-0.0
-%attr(755,root,root) %{_libdir}/%{name}-0.0.so
 %{_pkgconfigdir}/%{name}-0.0.pc
+
+%files apidocs
+%defattr(644,root,root,755)
+%doc %{_docdir}/%{name}
 
 %files tools
 %defattr(644,root,root,755)
