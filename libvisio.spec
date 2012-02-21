@@ -1,4 +1,5 @@
-Summary:	A library providing ability to interpret and import visio diagrams
+Summary:	A library providing ability to interpret and import Visio diagrams
+Summary(pl.UTF-8):     Biblioteka dostarczająca możliwość interpretowania i importowania diagramów Visio
 Name:		libvisio
 Version:	0.0.14
 Release:	1
@@ -14,9 +15,14 @@ BuildRequires:	libwpg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Libvisio is library providing ability to interpret and import visio
+Libvisio is library providing ability to interpret and import Visio
 diagrams into various applications. You can find it being used in
 libreoffice.
+
+%description -l pl.UTF-8
+Libvisio to biblioteka dostarczająca możliwość interpretowania
+i importowania diagramów Visio do wielu aplikacji. Znajdziesz ją
+w libreoffice.
 
 %package devel
 Summary:	Development files for %{name}
@@ -26,6 +32,10 @@ Requires:	%{name} = %{version}-%{release}
 %description devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
+
+%description devel -l pl.UTF-8
+Paczka %{name}-devel zawiera biblioteki i pliki nagłówkowe do
+tworzenia aplikacji opartych na %{name}.
 
 %package apidocs
 Summary:	%{name} API documentation
@@ -40,12 +50,17 @@ Dokumentacja API biblioteki %{name}.
 
 %package tools
 Summary:	Tools to transform Visio diagrams into other formats
+Summary(pl.UTF-8):	Użytki do przekształcania diagramów Visio do innych formatów
 Group:		Applications/Publishing
 Requires:	%{name} = %{version}-%{release}
 
 %description tools
 Tools to transform Visio diagrams into other formats. Currently
 supported: XHTML, raw.
+
+%description tools -l pl.UTF-8
+Narzędzia do przekształcania diagramów Visio do innych formatów. Aktualnie wspierane:
+XHTML, raw.
 
 %prep
 %setup -q
