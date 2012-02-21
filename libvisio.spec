@@ -1,5 +1,5 @@
 Summary:	A library providing ability to interpret and import Visio diagrams
-Summary(pl.UTF-8):     Biblioteka dostarczająca możliwość interpretowania i importowania diagramów Visio
+Summary(pl.UTF-8):	Biblioteka dostarczająca możliwość interpretowania i importowania diagramów Visio
 Name:		libvisio
 Version:	0.0.14
 Release:	1
@@ -26,6 +26,7 @@ w libreoffice.
 
 %package devel
 Summary:	Development files for %{name}
+Summary(pl.UTF-8):	Pliki nagłówkowe dla %{name}
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
