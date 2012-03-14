@@ -124,9 +124,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libvisio-0.0
 %{_pkgconfigdir}/libvisio-0.0.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libvisio-0.0.a
+%endif
 
 %files apidocs
 %defattr(644,root,root,755)
