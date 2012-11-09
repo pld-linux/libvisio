@@ -5,21 +5,23 @@
 Summary:	A library providing ability to interpret and import Visio diagrams
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie diagramów Visio
 Name:		libvisio
-Version:	0.0.19
+Version:	0.0.20
 Release:	1
 License:	GPL v2+ or LGPL v2+ or MPL v1.1
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	a3c4e5f4c56442cea766a37b437416fc
+# Source0-md5:	5b3effc72395faa3376ae4c3ba3f724f
 URL:		http://www.freedesktop.org/wiki/Software/libvisio
 BuildRequires:	boost-devel >= 1.36
 BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
 BuildRequires:	libwpd-devel >= 0.9
 BuildRequires:	libwpg-devel >= 0.2
+BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig >= 1:0.20
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,6 +42,8 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
 Requires:	libwpd-devel >= 0.9
 Requires:	libwpg-devel >= 0.2
+Requires:	libxml2-devel >= 2.0
+Requires:	zlib-devel
 
 %description devel
 This package contains the header files for developing applications
@@ -139,3 +143,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/vsd2raw
 %attr(755,root,root) %{_bindir}/vsd2text
 %attr(755,root,root) %{_bindir}/vsd2xhtml
+%attr(755,root,root) %{_bindir}/vss2raw
+%attr(755,root,root) %{_bindir}/vss2text
+%attr(755,root,root) %{_bindir}/vss2xhtml
