@@ -5,25 +5,26 @@
 Summary:	A library providing ability to interpret and import Visio diagrams
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie diagramów Visio
 Name:		libvisio
-Version:	0.0.30
+Version:	0.0.31
 Release:	1
 License:	GPL v2+ or LGPL v2+ or MPL v1.1
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	d691804bd356ec1edfdfd8e0709347ea
+# Source0-md5:	12ceec054cdec55b4dc9fc931507d1cd
 URL:		http://www.freedesktop.org/wiki/Software/libvisio
 BuildRequires:	boost-devel >= 1.36
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3
 BuildRequires:	libicu-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	libwpd-devel >= 0.9
+BuildRequires:	libwpd-devel >= 0.9.5
 BuildRequires:	libwpg-devel >= 0.2
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig >= 1:0.20
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	zlib-devel
+Requires:	libwpd >= 0.9.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,7 +43,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla %{name}
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
-Requires:	libwpd-devel >= 0.9
+Requires:	libwpd-devel >= 0.9.5
 Requires:	libwpg-devel >= 0.2
 Requires:	libxml2-devel >= 2.0
 Requires:	zlib-devel
