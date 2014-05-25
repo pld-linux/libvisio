@@ -5,17 +5,18 @@
 Summary:	A library providing ability to interpret and import Visio diagrams
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie diagramów Visio
 Name:		libvisio
-Version:	0.0.31
-Release:	2
-License:	GPL v2+ or LGPL v2+ or MPL v1.1
+Version:	0.1.0
+Release:	1
+License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	12ceec054cdec55b4dc9fc931507d1cd
+# Source0-md5:	41e156acfd269dcaf99b37a1d979b746
 URL:		http://www.freedesktop.org/wiki/Software/libvisio
 BuildRequires:	boost-devel >= 1.36
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3
 BuildRequires:	libicu-devel
+BuildRequires:	librevenge-devel >= 0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libwpd-devel >= 0.9.5
 BuildRequires:	libwpg-devel >= 0.2
@@ -38,23 +39,23 @@ diagramów Visio do wielu aplikacji. Jest wykorzystywana przez
 libreoffice.
 
 %package devel
-Summary:	Development files for %{name}
-Summary(pl.UTF-8):	Pliki nagłówkowe dla %{name}
+Summary:	Development files for libvisio library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libvisio
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libicu-devel
+Requires:	librevenge-devel >= 0.0
 Requires:	libstdc++-devel
-Requires:	libwpd-devel >= 0.9.5
-Requires:	libwpg-devel >= 0.2
 Requires:	libxml2-devel >= 2.0
 Requires:	zlib-devel
 
 %description devel
 This package contains the header files for developing applications
-that use %{name}.
+that use libvisio.
 
 %description devel -l pl.UTF-8
 Pen pakiet zawiera pliki nagłówkowe do tworzenia aplikacji opartych na
-%{name}.
+bibliotece libvisio.
 
 %package static
 Summary:	Static libvisio library
@@ -69,15 +70,15 @@ Static libvisio library.
 Statyczna biblioteka libvisio.
 
 %package apidocs
-Summary:	%{name} API documentation
-Summary(pl.UTF-8):	Dokumentacja API biblioteki %{name}
+Summary:	API documentation for libvisio library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libvisio
 Group:		Documentation
 
 %description apidocs
-API and internal documentation for %{name} library.
+API and internal documentation for libvisio library.
 
 %description apidocs -l pl.UTF-8
-Dokumentacja API biblioteki %{name}.
+Dokumentacja API biblioteki libvisio.
 
 %package tools
 Summary:	Tools to transform Visio diagrams into other formats
@@ -99,8 +100,7 @@ Aktualnie obsługiwane są XHTML i raw.
 %build
 %configure \
 	--disable-silent-rules \
-	%{?with_static_libs:--enable-static} \
-	--disable-werror
+	%{?with_static_libs:--enable-static}
 
 %{__make}
 
@@ -121,25 +121,25 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog
-%attr(755,root,root) %{_libdir}/libvisio-0.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvisio-0.0.so.0
+%doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_libdir}/libvisio-0.1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvisio-0.1.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libvisio-0.0.so
-%{_includedir}/libvisio-0.0
-%{_pkgconfigdir}/libvisio-0.0.pc
+%attr(755,root,root) %{_libdir}/libvisio-0.1.so
+%{_includedir}/libvisio-0.1
+%{_pkgconfigdir}/libvisio-0.1.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libvisio-0.0.a
+%{_libdir}/libvisio-0.1.a
 %endif
 
 %files apidocs
 %defattr(644,root,root,755)
-%doc %{_docdir}/%{name}
+%{_docdir}/%{name}
 
 %files tools
 %defattr(644,root,root,755)
