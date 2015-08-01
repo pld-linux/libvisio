@@ -5,12 +5,12 @@
 Summary:	A library providing ability to interpret and import Visio diagrams
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie diagramów Visio
 Name:		libvisio
-Version:	0.1.1
-Release:	3
+Version:	0.1.3
+Release:	1
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libvisio/%{name}-%{version}.tar.xz
-# Source0-md5:	299c02fa08a1b9dc2be8ffa9deb0457a
+# Source0-md5:	fda521a18bbfccc5f034ea02119e7998
 URL:		http://www.freedesktop.org/wiki/Software/libvisio
 BuildRequires:	boost-devel >= 1.36
 BuildRequires:	doxygen
