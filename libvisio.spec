@@ -17,7 +17,7 @@ BuildRequires:	doxygen
 BuildRequires:	gperf >= 3
 BuildRequires:	libicu-devel
 BuildRequires:	librevenge-devel >= 0.0
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig >= 1:0.20
@@ -43,7 +43,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libicu-devel
 Requires:	librevenge-devel >= 0.0
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:4.7
 Requires:	libxml2-devel >= 2.0
 Requires:	zlib-devel
 
