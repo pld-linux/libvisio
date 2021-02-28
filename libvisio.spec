@@ -71,9 +71,7 @@ Statyczna biblioteka libvisio.
 Summary:	API documentation for libvisio library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libvisio
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API and internal documentation for libvisio library.
