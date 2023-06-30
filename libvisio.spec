@@ -6,7 +6,7 @@ Summary:	A library providing ability to interpret and import Visio diagrams
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie diagramów Visio
 Name:		libvisio
 Version:	0.1.7
-Release:	6
+Release:	7
 License:	MPL v2.0
 Group:		Libraries
 Source0:	https://dev-www.libreoffice.org/src/libvisio/%{name}-%{version}.tar.xz
